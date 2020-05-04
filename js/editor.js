@@ -2,11 +2,18 @@ window.addEventListener("load", function () {
   document.getElementById('editor').addEventListener('paste', function (e) {
     e.preventDefault();
     e.stopPropagation();
-    insertAtCursor(this,e.clipboardData.getData('text/html'));
+    insertAtCursor(this, e.clipboardData.getData('text/html'));
   });
 });
 
-function insertAtCursor (input, textToInsert) {
+document.getElementById('showtags').addEventListener('click', function() {
+  var editor = document.getElementById('editor');
+  var content = editor.innerHTML;
+  content = htmlEncode(content);
+  editor.innerHTML = content;
+});
+
+function insertAtCursor(input, textToInsert) {
   // get current text of the input
   const content = input.innerHTML;
 
@@ -21,3 +28,24 @@ function insertAtCursor (input, textToInsert) {
   input.selectionStart = input.selectionEnd = start + textToInsert.length;
 }
 
+function htmlEncode(html) {
+  html = trim(html);
+  return html.replace(/[&"'\<\>]/g, function (c) {
+    switch (c) {
+      case "&":
+        return "&amp;";
+      case "'":
+        return "&#39;";
+      case '"':
+        return "&quot;";
+      case "<":
+        return "&lt;";
+      default:
+        return "&gt;";
+    }
+  });
+};
+
+function trim(input) {
+  return input.toString().replace(/^([\s]*)|([\s]*)$/g, '');
+}
