@@ -16,49 +16,49 @@ font-family: 'Spectral', serif;
 font-family: 'Arsenal', sans-serif; */
 /*--------------------------*/
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 .container {
-    width: 75%;
-    max-width: 1000px;
-    margin: 0 auto;
+  width: 75%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .wrapper {padding: 15px 25px;}
 .gold {color: #d49b41;}
 /*--------------------------*/
 #up {
-    display: none;
-    padding: 5px;
-    background-color: rgba(0,0,0,0.65);
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 9999;
-    color: #f7f5f3;
-    cursor: pointer;
+  display: none;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.65);
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  color: #f7f5f3;
+  cursor: pointer;
 }
 #up i {font-size: 35px;}
 /*--------------------------*/
 .dark {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.35);
-    display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.35);
+  display: inline-block;
 }
 /*--------------------------*/
 .xbutton {
-    color: #f7f5f3;
-    background-color: #ef9c00;
+  color: #f7f5f3;
+  background-color: #ef9c00;
 }
 .xbutton {
-    color: #372509;
-    background-color: #ef9c00;
+  color: #372509;
+  background-color: #ef9c00;
 }
 .xbutton:hover {
-    background-color: #32424a;
-    color: #ef9c00;
+  background-color: #32424a;
+  color: #ef9c00;
 }
 /*--------------------------*/
 .flex-bet {
@@ -105,23 +105,26 @@ img {
 /*--------------------------*/
 form input {box-sizing: border-box !important;}
 form input, form textarea {
-    background-color: #f7f5f3 !important;
-    border: 1px solid #c8a46d !important;
-    margin: 5px 0;
-    border-radius: unset;
-    padding-left: 10px !important;
+  background-color: #f7f5f3 !important;
+  border: 1px solid #c8a46d !important;
+  margin: 5px 0;
+  border-radius: unset;
+  padding-left: 10px !important;
 }
 textarea {
-    height: unset;
-    /* width: 100% !important; */
-    padding-top: 10px !important;
+  height: unset;
+  /* width: 100% !important; */
+  padding-top: 10px !important;
 }
 /*--------------------------*/
 #editor-wrapper {
   border: 1px solid tan;
   min-height: 250px;
 }
-#editor {padding: 5px;}
+#editor {
+  padding: 5px;
+  outline: none;
+}
 #tools {
   display: flex;
   justify-content: flex-start;
