@@ -1,3 +1,6 @@
+// get current text of the input
+var content = input.innerHTML, contentProxy;
+
 window.addEventListener("load", function () {
   document.getElementById('editor').addEventListener('paste', function (e) {
     e.preventDefault();
@@ -6,7 +9,7 @@ window.addEventListener("load", function () {
   });
 });
 
-document.getElementById('showtags').addEventListener('click', function() {
+document.getElementById('showtags').addEventListener('click', function () {
   var editor = document.getElementById('editor');
   var content = editor.innerHTML;
   content = htmlEncode(content);
@@ -14,15 +17,20 @@ document.getElementById('showtags').addEventListener('click', function() {
 });
 
 function insertAtCursor(input, textToInsert) {
-  // get current text of the input
-  const content = input.innerHTML;
-
   // save selection start and end position
   const start = window.getSelection().anchorOffset;
   const end = window.getSelection().focusOffset;
 
+  // console.log(start);
+  // console.log(end);
+  // console.log(content.slice(0, start));
+  // console.log(content.slice(end));
+  // console.log(textToInsert);
+  // console.log(content.slice(0, start) + textToInsert + content.slice(end));
+
   // update the content with our text inserted
-  input.innerHTML = content.slice(0, start) + textToInsert + content.slice(end);
+  contentProxy = content.slice(0, start) + textToInsert + content.slice(end);
+  input.innerHTML = contentProxy;
 
   // update cursor to be at the end of insertion
   input.selectionStart = input.selectionEnd = start + textToInsert.length;

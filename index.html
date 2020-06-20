@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/materialize.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,17 +21,72 @@
 
   <div class="container">
     <div class="wrapper">
-      <h5>Good editor</h5><br>
-      <div class="progress">
-        <div class="indeterminate"></div>
+      <h5>Good editor</h5>
+      <div id="editor-wrapper">
+        <div id="tools">
+          <span class="tools-group">
+            <i class="fa fa-code"></i>
+          </span>
+          <span class="tools-group">
+            <i class="fa fa-bold"></i>
+            <i class="fa fa-italic"></i>
+            <i class="fa fa-underline"></i>
+          </span>
+          <span class="tools-group">
+            <i class="fa fa-strikethrough"></i>
+            <i class="fa fa-superscript"></i>
+            <i class="fa fa-subscript"></i>
+          </span>
+          <span class="tools-group">
+            <h5>H1</h5>
+            <h5>H2</h5>
+            <h5>H3</h5>
+          </span>
+          <span class="tools-group">
+            <i class="fa fa-font br"></i>
+          </span>
+          <span class="tools-group">
+            <div id="font-size-trigger">
+              <span>8</span> 
+              <i class="fa fa-angle-down"></i> 
+              <ul id="font-size">
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </span>
+          <span class="tools-group">
+            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ol"></i> 
+            <i class="fa fa-align-left"></i> 
+            <i class="fa fa-align-center"></i> 
+            <i class="fa fa-align-right"></i> 
+            <i class="fa fa-align-justify"></i>  
+          </span>
+          <span class="tools-group">
+            <i class="fa fa-link"></i>
+            <i class="fa fa-unlink"></i>
+          </span>
+          <span class="tools-group">
+            <i class="fa fa-image"></i>  
+          </span>
+        </div>
+        <div id="editor" contenteditable="true">I am Shutruk Nahunte, King of Anšan and Susa, Sovereign of the land of Elam. By command of Inshushinak I destroyed Sippar, Took the Stele of Niran-Sin, and brought it back to Elam, where I erected it as an offering to my god.</div>
       </div>
-      <!-- <button id="submit" class="waves-effect waves-light btn xbutton">QWERTY</button> -->
-      <div id="editor" contenteditable="true">这是位优秀的编辑，深圳人</div>
-      <button id="showtags" class="waves-effect waves-light btn xbutton">QWERTY</button>
     </div>
   </div>
 
-  <script type="text/javascript" src="js/materialize.js"></script>
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"
+    integrity="sha384-heKROmDHlJdBb+n64p+i+wLplNYUZPaZmp2HZ4J6KCqzmd33FJ8QClrOV3IdHZm5"
+    crossorigin="anonymous"></script> -->
   <script src="js/editor.js"></script>
 </body>
 
