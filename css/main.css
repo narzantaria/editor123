@@ -146,7 +146,18 @@ textarea {
 	border-right: 1px solid #888;
 	padding: 0 8px;
 }
-.tools-group button {}
+.tools-group button {
+	margin: 5px 0;
+	cursor: pointer;
+	border-right: 1px solid #888;
+	padding: 0 8px;
+	border-left: none;
+	border-top: none;
+	border-bottom: none;
+	background-color: inherit;
+}
+.tools-group button:first-child {border-left: 1px solid #888;}
+.tools-group button:last-child {border-right: none;}
 .br {border-right: 1px solid #888 !important;}
 .bl {border-left: 1px solid #888 !important;}
 .tools-group h5:last-child {border-right: none;}
