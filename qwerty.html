@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Anonymous+Pro|Arimo|Arsenal|Cousine|Jura|Lora|Merriweather|Noto+Sans|PT+Mono|PT+Serif|Play|Source+Sans+Pro|Spectral|Tinos|Ubuntu+Condensed"
+    rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="wrapper">
+      <button id='xxx'>OK</button>
+      <div id="qwerty"></div>
+    </div>
+  </div>
+
+  <script>
+    var xxx = `<span class="tools-group">
+                <button id="h1">H1</button>
+                <button id="h2">H2</button>
+                <button id="h3">H3</button>
+              </span>`;
+    document.getElementById('xxx').addEventListener('click', function () {
+      document.getElementById('qwerty').insertAdjacentHTML('beforeend', xxx);
+    });       
+  </script>
+</body>
+
+</html>

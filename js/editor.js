@@ -1,3 +1,8 @@
+/*
+Есть глюк - Если создать заголовок, а затем что-то еще в другом месте, и потом снова выделить заголовок, то нельзя его обернуть назад.
+Он увеличивается. Также надо, чтобы заголовок одного типа не оборачивал другой. С последним требованием вроде неплохо, но надо проверить.
+*/
+
 let elements = ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'];
 let headers = ['h1','h2','h3'];
 
@@ -59,7 +64,7 @@ function headerFormatter(arg) {
       let range = sel.getRangeAt(0).cloneRange();
       // create an object from range for querying tags
       let rangeProxy = sel.getRangeAt(0).cloneContents();
-      if (rangeProxy.querySelector(arg)) {
+      if (rangeProxy.querySelector('h1') || rangeProxy.querySelector('h2') || rangeProxy.querySelector('h3')) {
         let tagContent = rangeProxy.querySelector(arg).innerHTML;
         // compare selection length with queried tag length
         if (range.startOffset == 1) {
