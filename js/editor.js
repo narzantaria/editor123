@@ -1,3 +1,6 @@
+let elements = ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'];
+let headers = ['h1','h2','h3'];
+
 document.getElementById('code').addEventListener('click', function () {
   var editor = document.getElementById('editor');
   var content = editor.innerHTML;
@@ -36,17 +39,28 @@ document.getElementById('shutruk').addEventListener('click', function () {
   console.log(document.getElementById('editor').innerHTML);
 });
 
-document.getElementById('h1').addEventListener('click', function () {
-  let newTag = document.createElement("h1");
+for (let x in elements) {
+  document.getElementById(elements[x]).addEventListener('click', function () {
+    formatter(elements[x]);
+  });
+}
+
+for (let x in headers) {
+  document.getElementById(headers[x]).addEventListener('click', function () {
+    headerFormatter(headers[x]);
+  });
+}
+
+function headerFormatter(arg) {
+  let newTag = document.createElement(arg);
   if (window.getSelection) {
     let sel = window.getSelection();
     if (sel.rangeCount) {
       let range = sel.getRangeAt(0).cloneRange();
-      // console.log(range.startOffset); //the letter with which the first tag in the selection begins; counts from 1!!!
       // create an object from range for querying tags
       let rangeProxy = sel.getRangeAt(0).cloneContents();
-      if (rangeProxy.querySelector('h1')) {
-        let tagContent = rangeProxy.querySelector('h1').innerHTML;
+      if (rangeProxy.querySelector(arg)) {
+        let tagContent = rangeProxy.querySelector(arg).innerHTML;
         // compare selection length with queried tag length
         if (range.startOffset == 1) {
           tagContent = tagContent.replace(/(<([^>]+)>)/ig, "");
@@ -71,9 +85,9 @@ document.getElementById('h1').addEventListener('click', function () {
       }
     }
   }
-});
+}
 
-document.getElementById('bold').addEventListener('click', function () {
+function formatter(arg) {
   var range, sel;
   if (window.getSelection) {
     // Non-IE case
@@ -86,12 +100,12 @@ document.getElementById('bold').addEventListener('click', function () {
       sel.removeAllRanges();
       sel.addRange(range);
     }
-    document.execCommand("bold", false, null);
+    document.execCommand(arg, false, null);
     document.designMode = "off";
   } else if (document.selection && document.selection.createRange &&
     document.selection.type != "None") {
     // IE case
     range = document.selection.createRange();
-    range.execCommand("bold", false, null);
+    range.execCommand(arg, false, null);
   }
-});
+}
