@@ -43,16 +43,17 @@ function trim(input) {
 document.getElementById('shutruk').addEventListener('click', function () {
   let sel = window.getSelection();
   let range = sel.getRangeAt(0).cloneRange();
-  let rangeProxy = sel.getRangeAt(0).cloneContents();
+  let parent = range.commonAncestorContainer.parentNode.innerHTML;
   console.log(sel);
+  console.log('sel.anchorOffset = ' + sel.anchorOffset);
+  console.log('sel.focusOffset = ' + sel.focusOffset);
   console.log(range);
-  // console.log(rangeProxy);
-  // console.log(rangeProxy.querySelector('h2'));
-  console.log(range.commonAncestorContainer.parentElement.toString());
-  // console.log(range.startOffset);
-  // console.log(sel.toString());
-  // console.log(range.commonAncestorContainer.parentNode.innerHTML);
-  // console.log(range.commonAncestorContainer.parentNode.toString());
+  console.log('range.startOffset = ' + range.startOffset);
+  console.log('range.endOffset = ' + range.endOffset);
+  console.log(sel.toString().length);
+  console.log(parent.length);
+  console.log(parent.slice(0, range.startOffset));
+  console.log(parent.slice(range.startOffset, range.endOffset));
   console.log('=============================');
 
 });
@@ -106,19 +107,29 @@ function headerFormatter(arg) {
         range.commonAncestorContainer.parentNode.nodeName == 'H2' ||
         range.commonAncestorContainer.parentNode.nodeName == 'H3'
       ) {
-        if(range.commonAncestorContainer.parentNode.innerHTML == sel.toString()) {
-          //
-          console.log('fgsfdsgfdsgf');
+        if (range.commonAncestorContainer.parentNode.innerHTML == sel.toString()) {
           let parent = range.commonAncestorContainer.parentNode;
-          let xxx = document.querySelector('h1');
-          console.log(parent);
-          console.log(xxx);
           parent.remove();
-          // parent.remove();
           range.deleteContents();
           range.insertNode(document.createTextNode(parent.innerHTML));
           sel.removeAllRanges();
           sel.addRange(range);
+        }
+        console.log(range.endOffset);
+        console.log(sel.toString().length);
+        if (range.endOffset == range.commonAncestorContainer.parentNode.innerHTML.length) {
+          let parent = range.commonAncestorContainer.parentNode;
+          let first = document.createElement("h2");
+          let second = document.createTextNode(parent.innerHTML.slice(range.startOffset, range.endOffset));
+          first.appendChild(document.createTextNode(parent.innerHTML.slice(0, range.startOffset)));
+          newNode = document.createElement("p");
+          newNode.appendChild(document.createTextNode("New Node Inserted Here"));
+          parent.remove();         
+          range.insertNode(second);
+          let secondRange = sel.getRangeAt(0).cloneRange();
+          sel.removeAllRanges();
+          sel.addRange(secondRange);
+          secondRange.insertNode(first);          
         }
       }
       else {
