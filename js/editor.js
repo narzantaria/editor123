@@ -4,7 +4,7 @@
 */
 
 let elements = ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'];
-let headers = ['h1','h2','h3'];
+let headers = ['h1', 'h2', 'h3'];
 
 document.getElementById('code').addEventListener('click', function () {
   var editor = document.getElementById('editor');
@@ -41,12 +41,25 @@ function trim(input) {
 }
 
 document.getElementById('shutruk').addEventListener('click', function () {
-  console.log(document.getElementById('editor').innerHTML);
+  let sel = window.getSelection();
+  let range = sel.getRangeAt(0).cloneRange();
+  let rangeProxy = sel.getRangeAt(0).cloneContents();
+  console.log(sel);
+  console.log(range);
+  // console.log(rangeProxy);
+  // console.log(rangeProxy.querySelector('h2'));
+  console.log(range.commonAncestorContainer.parentElement.toString());
+  // console.log(range.startOffset);
+  // console.log(sel.toString());
+  // console.log(range.commonAncestorContainer.parentNode.innerHTML);
+  // console.log(range.commonAncestorContainer.parentNode.toString());
+  console.log('=============================');
+
 });
 
 for (let x in elements) {
   document.getElementById(elements[x]).addEventListener('click', function () {
-    formatter(elements[x]);
+    formatter(elements[x], null);
   });
 }
 
@@ -64,7 +77,11 @@ function headerFormatter(arg) {
       let range = sel.getRangeAt(0).cloneRange();
       // create an object from range for querying tags
       let rangeProxy = sel.getRangeAt(0).cloneContents();
-      if (rangeProxy.querySelector('h1') || rangeProxy.querySelector('h2') || rangeProxy.querySelector('h3')) {
+      if (
+        rangeProxy.querySelector('h1') ||
+        rangeProxy.querySelector('h2') ||
+        rangeProxy.querySelector('h3')
+      ) {
         let tagContent = rangeProxy.querySelector(arg).innerHTML;
         // compare selection length with queried tag length
         if (range.startOffset == 1) {
@@ -83,7 +100,28 @@ function headerFormatter(arg) {
           sel.addRange(range);
           return;
         }
-      } else {
+      }
+      if (
+        range.commonAncestorContainer.parentNode.nodeName == 'H1' ||
+        range.commonAncestorContainer.parentNode.nodeName == 'H2' ||
+        range.commonAncestorContainer.parentNode.nodeName == 'H3'
+      ) {
+        if(range.commonAncestorContainer.parentNode.innerHTML == sel.toString()) {
+          //
+          console.log('fgsfdsgfdsgf');
+          let parent = range.commonAncestorContainer.parentNode;
+          let xxx = document.querySelector('h1');
+          console.log(parent);
+          console.log(xxx);
+          parent.remove();
+          // parent.remove();
+          range.deleteContents();
+          range.insertNode(document.createTextNode(parent.innerHTML));
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      }
+      else {
         range.surroundContents(newTag);
         sel.removeAllRanges();
         sel.addRange(range);
@@ -92,7 +130,7 @@ function headerFormatter(arg) {
   }
 }
 
-function formatter(arg) {
+function formatter(arg1, arg2) {
   var range, sel;
   if (window.getSelection) {
     // Non-IE case
@@ -105,12 +143,50 @@ function formatter(arg) {
       sel.removeAllRanges();
       sel.addRange(range);
     }
-    document.execCommand(arg, false, null);
+    document.execCommand(arg1, false, arg2);
     document.designMode = "off";
   } else if (document.selection && document.selection.createRange &&
     document.selection.type != "None") {
     // IE case
     range = document.selection.createRange();
-    range.execCommand(arg, false, null);
+    range.execCommand(arg1, false, arg2);
   }
 }
+
+document.getElementById('fontclr').addEventListener('click', function () {
+  document.getElementById('fontclr-wrapper').classList.toggle('editor-hide');
+});
+
+document.getElementById('backclr').addEventListener('click', function () {
+  document.getElementById('backclr-wrapper').classList.toggle('editor-hide');
+});
+
+let fontclr = document.getElementById('fontclr-wrapper').querySelectorAll('button');
+let backclr = document.getElementById('backclr-wrapper').querySelectorAll('button');
+
+document.getElementById('fontclr-wrapper').addEventListener('click', function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+});
+
+document.getElementById('backclr-wrapper').addEventListener('click', function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+});
+
+for (let x = 0; x < fontclr.length; x++) {
+  fontclr[x].addEventListener('click', function () {
+    formatter('foreColor', this.style.backgroundColor);
+  });
+}
+
+for (let x = 0; x < backclr.length; x++) {
+  backclr[x].addEventListener('click', function () {
+    formatter('hiliteColor', this.style.backgroundColor);
+  });
+}
+
+document.getElementById('font-size').addEventListener('change', function (e) {
+  console.log(e.target.value);
+  formatter('fontSize', e.target.value);
+});

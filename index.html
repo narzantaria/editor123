@@ -43,10 +43,39 @@
             <button id="h3">H3</button>
           </span>
           <span class="tools-group">
-            <i class="fa fa-font br"></i>
+            <div id="fontclr">
+              <i class="fa fa-font"></i>
+              <div id="fontclr-wrapper" class="colours-wrapper editor-hide">
+                <button style="background-color: #000;"></button>
+                <button style="background-color: #fff;"></button>
+                <button style="background-color: red;"></button>
+                <button style="background-color: green;"></button>
+                <button style="background-color: blue;"></button>
+                <button style="background-color: yellow;"></button>
+                <button style="background-color: orange;"></button>
+                <button style="background-color: gray;"></button>
+                <button style="background-color: brown;"></button>
+                <button style="background-color: skyblue;"></button>
+              </div>
+            </div>
+            <div id="backclr">
+              <i class="fa fa-tint br"></i>
+              <div id="backclr-wrapper" class="colours-wrapper editor-hide">
+                <button style="background-color: #000;"></button>
+                <button style="background-color: #fff;"></button>
+                <button style="background-color: red;"></button>
+                <button style="background-color: green;"></button>
+                <button style="background-color: blue;"></button>
+                <button style="background-color: yellow;"></button>
+                <button style="background-color: orange;"></button>
+                <button style="background-color: gray;"></button>
+                <button style="background-color: brown;"></button>
+                <button style="background-color: skyblue;"></button>
+              </div>
+            </div>            
           </span>
           <span class="tools-group">
-            <div id="font-size-trigger">
+            <!-- <div id="font-size-trigger">
               <span>8</span> 
               <i class="fa fa-angle-down"></i> 
               <ul id="font-size">
@@ -61,7 +90,14 @@
                 <li></li>
                 <li></li>
               </ul>
-            </div>
+            </div> -->
+            <select name="font-size" id="font-size">
+              <option value="8px">8</option>
+              <option value="9px">9</option>
+              <option value="10px">10</option>
+              <option value="11px">11</option>
+              <option value="12px">12</option>
+            </select>
           </span>
           <span class="tools-group">
             <i class="fa fa-list-ul"></i> 
