@@ -195,7 +195,7 @@ textarea {
 #font-size option {}
 /*--------------------------*/
 .editor-hide {display: none !important;}
-#fontclr, #backclr {position: relative;}
+#fontclr, #backclr, #linktext, #insertimg {position: relative;}
 .colours-wrapper {
 	position: absolute;
 	background-color: #ece9e9;
@@ -214,6 +214,17 @@ textarea {
 	cursor: pointer;
 	border: none !important;
 }
+.link-wrapper, .img-wrapper {
+	position: absolute;
+	background-color: #ece9e9;
+	display: block;
+	width: 145px;
+	top: 29px;
+	border: 1px solid tan;
+	padding: 7px;
+}
+.link-wrapper input, .img-wrapper input {max-width: 88%;}
+.link-wrapper button, .img-wrapper button {margin-bottom: 0;}
 /*--------------------------*/
 
 /*--------------------------*/

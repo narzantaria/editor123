@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/editor.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,107 +22,10 @@
   <div class="container">
     <div class="wrapper">
       <h3>Good editor</h3>
-      <div id="editor-wrapper">
-        <div id="tools">
-          <span class="tools-group">
-            <i id='code' class="fa fa-code"></i>
-          </span>
-          <span class="tools-group">
-            <i id='bold' class="fa fa-bold"></i>
-            <i id='italic' class="fa fa-italic"></i>
-            <i id="underline" class="fa fa-underline"></i>
-          </span>
-          <span class="tools-group">
-            <i id="strikethrough" class="fa fa-strikethrough"></i>
-            <i id="superscript" class="fa fa-superscript"></i>
-            <i id="subscript" class="fa fa-subscript"></i>
-          </span>
-          <span class="tools-group">
-            <button id="h1">H1</button>
-            <button id="h2">H2</button>
-            <button id="h3">H3</button>
-          </span>
-          <span class="tools-group">
-            <div id="fontclr">
-              <i class="fa fa-font"></i>
-              <div id="fontclr-wrapper" class="colours-wrapper editor-hide">
-                <button style="background-color: #000;"></button>
-                <button style="background-color: #fff;"></button>
-                <button style="background-color: red;"></button>
-                <button style="background-color: green;"></button>
-                <button style="background-color: blue;"></button>
-                <button style="background-color: yellow;"></button>
-                <button style="background-color: orange;"></button>
-                <button style="background-color: gray;"></button>
-                <button style="background-color: brown;"></button>
-                <button style="background-color: skyblue;"></button>
-              </div>
-            </div>
-            <div id="backclr">
-              <i class="fa fa-tint br"></i>
-              <div id="backclr-wrapper" class="colours-wrapper editor-hide">
-                <button style="background-color: #000;"></button>
-                <button style="background-color: #fff;"></button>
-                <button style="background-color: red;"></button>
-                <button style="background-color: green;"></button>
-                <button style="background-color: blue;"></button>
-                <button style="background-color: yellow;"></button>
-                <button style="background-color: orange;"></button>
-                <button style="background-color: gray;"></button>
-                <button style="background-color: brown;"></button>
-                <button style="background-color: skyblue;"></button>
-              </div>
-            </div>            
-          </span>
-          <span class="tools-group">
-            <!-- <div id="font-size-trigger">
-              <span>8</span> 
-              <i class="fa fa-angle-down"></i> 
-              <ul id="font-size">
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div> -->
-            <select name="font-size" id="font-size">
-              <option value="8px">8</option>
-              <option value="9px">9</option>
-              <option value="10px">10</option>
-              <option value="11px">11</option>
-              <option value="12px">12</option>
-            </select>
-          </span>
-          <span class="tools-group">
-            <i class="fa fa-list-ul"></i> 
-            <i class="fa fa-list-ol"></i> 
-            <i class="fa fa-align-left"></i> 
-            <i class="fa fa-align-center"></i> 
-            <i class="fa fa-align-right"></i> 
-            <i class="fa fa-align-justify"></i>  
-          </span>
-          <span class="tools-group">
-            <i class="fa fa-link"></i>
-            <i class="fa fa-unlink"></i>
-          </span>
-          <span class="tools-group">
-            <i id="shutruk" class="fa fa-image"></i>  
-          </span>
-        </div>
-        <div id="editor" contenteditable="true">I am Shutruk Nahunte, King of Anšan and Susa, Sovereign of the land of Elam. By command of Inshushinak I destroyed Sippar, Took the Stele of Niran-Sin, and brought it back to Elam, where I erected it as an offering to my god.</div>
-      </div>
+      <div id="editor-container"></div>
     </div>
   </div>
 
-  <!-- <script defer src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"
-    integrity="sha384-heKROmDHlJdBb+n64p+i+wLplNYUZPaZmp2HZ4J6KCqzmd33FJ8QClrOV3IdHZm5"
-    crossorigin="anonymous"></script> -->
   <script src="js/editor.js"></script>
 </body>
 
