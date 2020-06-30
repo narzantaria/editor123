@@ -14,7 +14,7 @@ A new text editor with many features, such as:
 
 ## How to use
 
-<img src="/img/screenshot.png" alt="Node.js" height="100" width="100">
+<img src="/img/screenshot.png" alt="Node.js">
 
 1. Create an empty div with id "editor-container".
 
