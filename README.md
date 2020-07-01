@@ -1,4 +1,4 @@
-# Goodeditor
+# Editor123
 Rich text editor in JavaScript (beta-version).
 
 A new text editor with many features, such as:
